@@ -1,7 +1,5 @@
-//Make a ViewModel function.
-
-var ViewModel = function() {
-    this.clickCount = ko.observable(0);
+var Cat = function() {
+	this.clickCount = ko.observable(0);
     this.name = ko.observable('Tabby');
     this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');	
 	this.imgAttribution = ko.observable('https://www.flickr.com/photos/bigtallguy/434164568');
@@ -31,10 +29,21 @@ var ViewModel = function() {
 		return title;
 	
 	}, this);
-	
-	
+
+}
+
+
+
+
+//Make a ViewModel function.
+
+var ViewModel = function() {
+    var self = this;
+	this.currentCat = ko.observable(new Cat());
+	// we don't need to say this.currentCat().clickCount anymore, because we are already
+	// we are already in the current cat binding context.
 	this.incrementCounter = function() {
-		this.clickCount(this.clickCount() + 1);
+		self.currentCat().clickCount(self.currentCat().clickCount() + 1);
 		
 	};
 }
