@@ -1,1 +1,1 @@
-Have created seperate Cat() function.
+Implemented using with.
